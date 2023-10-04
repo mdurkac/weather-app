@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Weather</title>
+    </head>
+    <body>
+            <h1>Weather</h1> 
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>country</th>
+                        <th>country_code</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        {% for weather in weather_s %}
+                        <tr>
+                            <td>{{weather.name}}</td>
+                            <td>{{weather.country}}</td>
+                            <td>{{weather.country_code}}</td>
+                        </tr>
+                        {% endfor %} 
+                    </tbody>
+            </table>    
+    </body>
+    
+    
+    
+    
+    
+    
