@@ -11,7 +11,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 db = SQL("sqlite:///locations.db")
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
 def index():
     weather = db.execute("select * from locations")
     return render_template("index.html" ,weather_s =weather)
