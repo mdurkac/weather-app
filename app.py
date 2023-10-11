@@ -34,3 +34,13 @@ def weather(latitude,longitude):
     temperature = current_weather['temperature']
     return temperature
 
+@app.route("/new-locations", methods=['GET'])
+def new_locations():
+    location = request.args.get('q')
+    PARAMS = {'name':location, 'count':10}
+    response = requests.get (url ='https://geocoding-api.open-meteo.com/v1/search', params = PARAMS) 
+    data = response.json()
+    results = data['results']
+    return render_template("new_locations.html", locations=results)
+    
+

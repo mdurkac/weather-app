@@ -6,35 +6,25 @@
     </head>
     <body>
             <h1>Weather</h1> 
-                <form action="/new-locations" method="get" >
-                    <input autocomplete="off" autofocus name="q"  type="text"/>
-                    <button type="submit">Hledat</button>
-                 </form>
             <table>
                 <thead>
                     <tr>
                         <th>name</th>
                         <th>country</th>
                         <th>country_code</th>
-                        <th>temperature</th>
                     </tr>
                 </thead>
                     <tbody>
-                        {% for weather in weather_s %}
+                        {% for location in locations %}
                         <tr>
-                            <td>{{weather.name}}</td>
-                            <td>{{weather.country}}</td>
-                            <td>{{weather.country_code}}</td>
-                            <td>{{weather.teplota}}</td>
+                            <td>{{location.name}}</td>
+                            <td>{{location.country}}</td>
+                            <td>{{location.admin1}}</td>
                         </tr>
                         {% endfor %} 
                     </tbody>
             </table>    
     </body>
 </html>
-    
-    
-    
-    
     
     
