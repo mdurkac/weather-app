@@ -44,3 +44,13 @@ def new_locations():
     return render_template("new_locations.html", locations=results)
     
 
+@app.route("/save_location", methods=['POST'])
+def save_location():
+    id =request.form.get("id")
+    name =request.form.get("name")
+    country =request.form.get("country")
+    country_code=request.form.get("country_code")
+    latitude=request.form.get("latitude")
+    longitude=request.form.get("longitude")
+    db.execute ("INSERT INTO locations (id, name, country, country_code, latitude,longitude)VALUES(?,?,?,?,?,?)" ,id, name, country, country_code, latitude,longitude)
+    return redirect("/")
