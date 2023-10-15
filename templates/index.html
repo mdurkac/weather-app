@@ -17,6 +17,7 @@
                         <th>country</th>
                         <th>country_code</th>
                         <th>temperature</th>
+                        
                     </tr>
                 </thead>
                     <tbody>
@@ -26,6 +27,12 @@
                             <td>{{weather.country}}</td>
                             <td>{{weather.country_code}}</td>
                             <td>{{weather.teplota}}</td>
+                            <td>
+                                <form action="/delete" method="post">
+                                    <input name="id" type="hidden" value="{{weather.id}}">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                         {% endfor %} 
                     </tbody>
