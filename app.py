@@ -34,3 +34,23 @@ def weather(latitude,longitude):
     temperature = current_weather['temperature']
     return temperature
 
+@app.route("/new-locations", methods=['GET'])
+def new_locations():
+    location = request.args.get('q')
+    PARAMS = {'name':location, 'count':10}
+    response = requests.get (url ='https://geocoding-api.open-meteo.com/v1/search', params = PARAMS) 
+    data = response.json()
+    results = data['results']
+    return render_template("new_locations.html", locations=results)
+    
+
+@app.route("/save_location", methods=['POST'])
+def save_location():
+    id =request.form.get("id")
+    name =request.form.get("name")
+    country =request.form.get("country")
+    country_code=request.form.get("country_code")
+    latitude=request.form.get("latitude")
+    longitude=request.form.get("longitude")
+    db.execute ("INSERT INTO locations (id, name, country, country_code, latitude,longitude)VALUES(?,?,?,?,?,?)" ,id, name, country, country_code, latitude,longitude)
+    return redirect("/")

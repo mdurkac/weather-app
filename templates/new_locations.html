@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Weather</title>
+    </head>
+    <body>
+            <h1>Weather</h1> 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Local name</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        {% for location in locations %}
+                        <tr>
+                            <td>{{location.name}}</td>
+                            <td>{{location.country}}</td>
+                            <td>{{location.admin1}}</td>
+                            <td>
+                                <form action="/save_location" method="post" >
+                                    <input name="name" type="hidden" value="{{location.name}}">
+                                    <imput name="country" type="hidden" valuu="{{location.country}}">
+                                    <imput name="local_name" type="hidden" value="{{location.local_country}}">
+                                    <input name="latitude" type="hidden" value="{{location.latitude}}">
+                                    <input name="longitude" type="hidden" value="{{location.longitude}}">
+                                    <input name="id" type="hidden" value="{{location.id}}">
+                                    <button type="submit">Add</button>
+                                    
+                                </form>
+                            </td>
+                        </tr>
+                        
+                        {% endfor %} 
+                    </tbody>
+            </table>    
+    </body>
+</html>
+    
+    
