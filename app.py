@@ -54,3 +54,11 @@ def save_location():
     longitude=request.form.get("longitude")
     db.execute ("INSERT INTO locations (id, name, country, country_code, latitude,longitude)VALUES(?,?,?,?,?,?)" ,id, name, country, country_code, latitude,longitude)
     return redirect("/")
+
+@app.route("/delete", methods=['POST'])
+def delete():
+    id =request.form.get("id")
+    if id:
+        db.execute("delete from locations where id=?", id)
+    return redirect("/")
+
