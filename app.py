@@ -6,6 +6,7 @@ import requests
 # Configure application
 app = Flask(__name__)
 
+
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
@@ -52,8 +53,9 @@ def save_location():
     country_code=request.form.get("country_code")
     latitude=request.form.get("latitude")
     longitude=request.form.get("longitude")
-    db.execute ("INSERT INTO locations (id, name, country, country_code, latitude,longitude)VALUES(?,?,?,?,?,?)" ,id, name, country, country_code, latitude,longitude)
+    db.execute("INSERT OR IGNORE INTO locations (id, name, country, country_code, latitude, longitude) VALUES (?,?,?,?,?,?)", id, name, country, country_code, latitude, longitude)
     return redirect("/")
+
 
 @app.route("/delete", methods=['POST'])
 def delete():
