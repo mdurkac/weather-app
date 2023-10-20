@@ -1,44 +1,77 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <title>Weather</title>
-    </head>
-    <body>
-            <h1>Weather</h1> 
-                <form action="/new-locations" method="get" >
-                    <input autocomplete="off" autofocus name="q"  type="text"/>
-                    <button type="submit">Hledat</button>
-                 </form>
-            <table>
-                <thead>
-                    <tr>
-                        <th>name</th>
-                        <th>country</th>
-                        <th>country_code</th>
-                        <th>temperature</th>
-                        
-                    </tr>
-                </thead>
-                    <tbody>
-                        {% for weather in weather_s %}
-                        <tr>
-                            <td>{{weather.name}}</td>
-                            <td>{{weather.country}}</td>
-                            <td>{{weather.country_code}}</td>
-                            <td>{{weather.teplota}}</td>
-                            <td>
-                                <form action="/delete" method="post">
-                                    <input name="id" type="hidden" value="{{weather.id}}">
-                                    <button type="submit">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                        {% endfor %} 
-                    </tbody>
-            </table>    
-    </body>
+<head>
+  <title>Weather</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<link href="/static/styles.css" rel="stylesheet">
+</head>
+<body>
+  <h2>Weather</h2> 
+  <form action="/new-locations" method="get" >
+    <input autocomplete="off" autofocus name="q"  type="text"/>
+      <button type="submit">Hledat</button>
+  </form>
+
+
+
+  <section>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+
+          {% for weather in weather_s %}
+          <div class="col-sm-4">
+            <div class="card text-center">
+              <div class="title">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                <h2>{{weather.name}}</h2>
+              </div>
+              <div class="temperature">
+                <h4>{{weather.teplota}}<sup>°C</sup></h4>
+              </div>
+              <div class="option">
+                <ul>
+                <li>{{weather.country}}</li>
+                <li>{{weather.country_code}}</li>
+                </ul>
+              </div>
+              <form action="/delete" method="post">
+                <input name="id" type="hidden" value="{{weather.id}}">
+                <button type="submit">Delete</button>
+            </form>
+            </div>
+          </div>
+          {% endfor %}
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </section>      
+
+
+
+
+
+
+
+
+  </body>
 </html>
+
     
     
     
