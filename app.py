@@ -41,9 +41,12 @@ def new_locations():
     PARAMS = {'name':location, 'count':10}
     response = requests.get (url ='https://geocoding-api.open-meteo.com/v1/search', params = PARAMS) 
     data = response.json()
-    results = data['results']
-    return render_template("new_locations.html", locations=results)
-    
+    if 'results' in data:
+        results = data ['results']
+        return render_template("new_locations.html", locations=results)
+    else:
+        return render_template("no_locations_found.html")
+
 
 @app.route("/save_location", methods=['POST'])
 def save_location():
