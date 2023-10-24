@@ -9,6 +9,8 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
 <link href="/static/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css"/>
+
 </head>
 <body>
   <h2>Weather</h2> 
@@ -22,13 +24,12 @@
   <section>
     <div class="container-fluid">
       <div class="container">
-        <div class="row">
-
+        <div class="row mezera">
           {% for weather in weather_s %}
           <div class="col-sm-4">
             <div class="card text-center">
               <div class="title">
-                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                <span class="fi fi-{{weather.country_code}} f-left"></span>
                 <h2>{{weather.name}}</h2>
               </div>
               <div class="temperature">
