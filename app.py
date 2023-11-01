@@ -41,7 +41,6 @@ def new_locations():
     PARAMS = {'name':location, 'count':10}
     response = requests.get (url ='https://geocoding-api.open-meteo.com/v1/search', params = PARAMS) 
     data = response.json()
-
     if 'results' in data:
         results = data ['results']
         for slovnik in results:
