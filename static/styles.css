@@ -10,7 +10,8 @@ section{
   height: 100vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-          padding: 140px 0;
+          padding-bottom: 4em 0;
+          padding-top: 4em;
 }
 .card{
   position: relative;
@@ -90,7 +91,6 @@ font-size: 16px;
   color : black;
   width: 150px;
   height: 40px;
-  line-height: 40px;
   border-radius: 40px;
   display: block;
   text-align: center;
@@ -107,17 +107,12 @@ font-size: 16px;
 h2 {
   position: relative;
   text-align: center;
+  font-weight: bold;
   margin: 20px  0 0;
   padding: 0;
-  color: #1a1818;
+  color: #2c2aa8;
   font-size: 40px;
   z-index: 2;
-  margin-left: 1200px;
-  display: inline-block;
-}
-
-form {
-  text-align: center;
   display: inline-block;
 }
 
@@ -126,8 +121,13 @@ input, button {
   margin-top: 5px;
 }
 
+.mezera{
+margin-top: O px !important
+}
 
-.mezera
-{margin-top: O px !important
+.main_title
+{
+  text-align: center;
+
 
 }

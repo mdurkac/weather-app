@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-# Configure CS50 Library to use SQLite database
+# Configure CS50 Library to use SQLite database 
 db = SQL("sqlite:///locations.db")
 
 
@@ -42,6 +42,9 @@ def new_locations():
     response = requests.get (url ='https://geocoding-api.open-meteo.com/v1/search', params = PARAMS) 
     data = response.json()
     results = data['results']
+    for slovnik in results:
+        country_code = slovnik['country_code']
+        slovnik['country_code'] = country_code.lower()
     return render_template("new_locations.html", locations=results)
     
 
