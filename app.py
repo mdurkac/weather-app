@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-# Configure CS50 Library to use SQLite database
+# Configure CS50 Library to use SQLite database 
 db = SQL("sqlite:///locations.db")
 
 
@@ -43,17 +43,19 @@ def new_locations():
     data = response.json()
     if 'results' in data:
         results = data ['results']
+        for slovnik in results:
+            country_code = slovnik['country_code']
+            slovnik['country_code'] = country_code.lower()
         return render_template("new_locations.html", locations=results)
     else:
         return render_template("no_locations_found.html")
-
-
+    
 @app.route("/save_location", methods=['POST'])
 def save_location():
     id =request.form.get("id")
     name =request.form.get("name")
     country =request.form.get("country")
-    country_code=request.form.get("country_code")
+    country_code=request.form.get("country_code").lower()
     latitude=request.form.get("latitude")
     longitude=request.form.get("longitude")
     db.execute("INSERT OR IGNORE INTO locations (id, name, country, country_code, latitude, longitude) VALUES (?,?,?,?,?,?)", id, name, country, country_code, latitude, longitude)
