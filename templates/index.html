@@ -21,9 +21,6 @@
   </form>
   </div>
 
-
-
-
   <section>
     <div class="container-fluid">
       <div class="container">
@@ -41,9 +38,12 @@
               <div class="option">
                 <ul>
                 <li>{{weather.country}}</li>
-                <li>{{weather.country_code}}</li>
                 </ul>
               </div>
+              <form action="/more_info" method="get">
+                <input name="id" type="hidden" value="{{weather.id}}">
+                <button type="submit">More info</button>
+              </form>
               <form action="/delete" method="post">
                 <input name="id" type="hidden" value="{{weather.id}}">
                 <button type="submit">Delete</button>

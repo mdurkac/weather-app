@@ -131,3 +131,57 @@ margin-top: O px !important
 
 
 }
+
+.single_card{
+  position: relative;
+  max-width: 300px;
+  height: auto;
+  background: linear-gradient(-45deg,#ffec61,#3674d1);
+  border-radius: 10px;
+  padding: 10px 20px;
+  -webkit-box-shadow: 0 10px 15px rgba(0,0,0,.1) ;
+          box-shadow: 0 10px 15px rgba(0,0,0,.1) ;
+-webkit-transition: .5s;
+transition: .5s;
+-webkit-transform: scale(1.1);
+          transform: scale(1.1);
+color:#fff;
+font-weight: bold;
+font-size: 40px;
+display: block;
+text-align: center;
+margin: 20px auto 1em ; 
+}
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Pro rovnoměrné rozložení kartiček */
+}
+
+.single_card_1{
+  position: relative;
+  height: auto;
+  background: linear-gradient(-45deg,#ffec61,#3674d1);
+  margin-bottom: 10px;
+border-radius: 10px;
+padding: 10px 20px;
+-webkit-box-shadow: 0 10px 15px rgba(0,0,0,.1) ;
+        box-shadow: 0 10px 15px rgba(0,0,0,.1) ;
+-webkit-transition: .5s;
+transition: .5s;
+-webkit-transform: scale(1.1);
+        transform: scale(1.1);
+color:#0e0d0d;
+font-weight: bold;
+font-size: 20px;
+display: block;
+text-align: center;
+margin: 20px auto 0 ; 
+}
+
+
+
+
+
