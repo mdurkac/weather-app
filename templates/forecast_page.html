@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Weather</title>
+        <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<link href="/static/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css"/>
+    </head>
+    <body>
+      <div class="single_card">
+        <span class="fi fi-{{location.country_code}} f-left"></span>
+        {{location.name}}
+      </div>
+        <div class="card-container">
+            <div class="single_card_1">Time: {{weather.time}}</div>
+            <div class="single_card_1">Temperature: {{weather.temperature_2m}} °C</div>
+            <div class="single_card_1">Apparent temperature: {{weather.apparent_temperature}} °C</div>
+            <div class="single_card_1">Rain: {{weather.rain}} mm</div>
+            <div class="single_card_1">Showers: {{weather.showers}} mm</div>
+            <div class="single_card_1">Windspeed: {{weather.windspeed_10m}} km/h</div>
+           
+
+      </div>
+             
+
+        <section>
+            <div class="container-fluid">
+              <div class="container">
+                <div class="row mezera">
+                  {% for day in days %}
+                    <div class="col-sm-4">
+                        <div class="card text-center">
+                          <div class="title">
+                            <h2>Day: {{day.time}}</h2>
+                          </div>
+                          <br>
+                          <div class="option">
+                            <ul>
+                              <li>Max: {{day.temperature_2m_max}}<sup>°C</sup></li>
+                              <li>Min: {{day.temperature_2m_min}}<sup>°C</sup></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}  
+                </div>
+              </div>
+            </div>
+        </section>        
+    </body>
+</html>
+    
+    

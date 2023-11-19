@@ -12,3 +12,6 @@ INSERT INTO locations (id, name, country, country_code, latitude,longitude) VALU
     (3078610, 'Brno', 'Czechia','cz', 49.19522, 16.60796),
     (724443, 'Košice', 'Slovakia', 'sk', 48.71395, 21.25808);
 
+
+
+
